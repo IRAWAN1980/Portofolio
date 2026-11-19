@@ -396,7 +396,15 @@ section{ padding: 72px 0; border-top: 1px solid var(--border); }
   .cert-grid{ grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 520px){
-  .cert-grid{ grid-template-columns: 1fr; }
+  .cert-grid{ grid-template-columns: 1fr 1fr; gap: 12px; }
+  .cert-body{ padding: 12px; }
+  .cert-card h3{ font-size: 12.5px; }
+  .cert-issuer, .cert-date{ font-size: 11px; }
+  .approach-flow{ white-space: normal; font-size: 13px; }
+  .project-stats b{ font-size: 17px; }
+  .project-stats span{ font-size: 10px; }
+  .shot-tab{ font-size: 10.5px; padding: 4px 8px; }
+  .hero-actions .btn{ flex: 1; text-align: center; }
 }
 </style>
 </head>
@@ -735,7 +743,7 @@ const CERTIFICATIONS = [
 // Entries whose href is "" or "#" are hidden automatically.
 const CONTACT = [
   { label: "Email", href: "" },      // e.g. "mailto:you@example.com"
-  { label: "LinkedIn", href: "" },   // e.g. "https://www.linkedin.com/in/..."
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/edi-irawan-94a942262/" },
   { label: "GitHub", href: "https://github.com/IRAWAN1980" },
   { label: "YesWeHack", href: "" }   // e.g. "https://yeswehack.com/hunters/..."
 ];
