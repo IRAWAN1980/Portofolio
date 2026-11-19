@@ -212,6 +212,7 @@ section{ padding: 72px 0; border-top: 1px solid var(--border); }
 }
 .shot-tab:hover{ color: var(--text); }
 .shot-tab.active{ color: #1A1305; background: var(--accent); border-color: var(--accent); }
+.shot-note{ margin: 0; font-size: 12px; color: var(--text-muted); font-style: italic; text-align: center; }
 .shot-frame{ flex: 1; display: flex; align-items: center; justify-content: center; width: 100%; }
 .shot-frame img{ display: none; max-height: 560px; width: auto; max-width: 100%; object-fit: contain; border-radius: 4px; border: 1px solid var(--border); cursor: zoom-in; }
 .shot-frame img.active{ display: block; }
@@ -601,6 +602,7 @@ const PROJECTS = [
       { title: "Unified web platform", detail: "Web, network and PHP2Shell modules with RoE governance, RBAC/MFA and Report Center.", date: "v6.6", state: "now" },
       { title: "Security Audit module", detail: "AI-assisted source code security analysis.", date: "", state: "next" }
     ],
+    shotNote: "Sample data — all domains, IP addresses (RFC 5737 examples), findings and metrics shown are fictional.",
     stats: [["50+", "OWASP test cases"], ["3", "network engines"], ["4", "RBAC roles"], ["238", "automated tests"]],
     summary: "Vulnerability assessment platform that combines web application assessment, network vulnerability assessment and PHP2Shell checks in one web interface — with scope governance, RoE-based authorization and consultant-grade reporting.",
     points: [
@@ -627,6 +629,7 @@ const PROJECTS = [
       { title: "Web platform", detail: "Rebuilt as a web dashboard: 19 intel sources, risk scoring and MITRE ATT&CK mapping.", date: "May 2026", state: "done" },
       { title: "SOC operations platform", detail: "XDR monitoring, alert inbox & cases, network abuse SLA, vulnerability intel and automated reporting.", date: "Nov 2026", state: "now" }
     ],
+    shotNote: "Shows public OSINT data from ransomware leak-site trackers. No internal, customer or production data is shown.",
     stats: [["19", "intel sources"], ["26", "background jobs"], ["~58k", "lines of code"], ["18", "core modules"]],
     summary: "Threat intelligence and security operations platform I designed and built for a SOC team — IOC enrichment, XDR monitoring, network abuse handling, vulnerability intelligence and reporting in a single web dashboard.",
     points: [
@@ -775,6 +778,7 @@ function renderProjects(){
         <div class="shot-frame">
           ${shots.map((s, i) => `<img src="${s.src}" alt="${p.name} — ${s.label}" data-i="${i}" data-keep="${s.keep ? 1 : ""}" data-label="${s.label}" class="${i === 0 ? "active" : ""}" onclick="window.open(this.src,'_blank')" title="Click to view full size" onerror="shotMissing(this)">`).join("")}
         </div>
+        ${p.shotNote ? `<p class="shot-note">ⓘ ${p.shotNote}</p>` : ""}
       </div>` : "";
 
     const journey = (p.journey || []).length ? `
